@@ -1,5 +1,7 @@
 import java.lang.reflect.Method;
 import java.util.*;
+
+import javax.lang.model.util.Elements;
 class Person {
     String name;
     int height;
@@ -99,6 +101,54 @@ public class Main {
       System.out.println(map.get(1)); // Apple
       System.out.println(map.getOrDefault(3, "Unknown")); // Unknown
 
+    // 4. Checking for Keys/Values
+
+    // containsKey(K key)	Checks if a key exists.
+    // containsValue(V value)	Checks if a value exists.
+    // isEmpty()	Returns true if the map has no elements.
+    
+    // 5. Removing Elements
+    // remove(K key)	Removes the key-value pair for the given key.
+    // remove(K key, V value)	Removes the entry only if both key and value match.
+    // clear()	Removes all entries from the map.
+
+    map.remove(1); // Removes key 1
+    map.remove(2, "Banana"); // Removes key 2 only if value is "Banana"
+    map.clear(); // Removes everything
+
+    // 6. Iterating Over a HashMap
+    // keySet()	Returns a Set of all keys.
+    // values()	Returns a Collection of all values.
+    // entrySet()	Returns a Set of key-value pairs (Map.Entry<K, V>).
+
+    for (Integer key : map.keySet()) {
+        System.out.println("Key: " + key);
+    }
+
+    for (String value : map.values()) {
+        System.out.println("Value: " + value);
+    }
+
+    for (HashMap.Entry<Integer, String> entry : map.entrySet()) {
+        System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
+    }
+    
+
+    // ✅ 7. Size and Performance
+    // size()	Returns the number of key-value pairs.
+    // hashCode()	Returns the hash code for the map.
+
+    System.out.println(map.size()); // 2
+    System.out.println(map.hashCode()); // Hash code of the map
+
+    // Method	Description
+    // put(K, V), putIfAbsent(K, V)	Adds/updates a key-value pair
+    // get(K), getOrDefault(K, V)	Retrieves a value
+    // containsKey(K), containsValue(V)	Checks existence
+    // remove(K), remove(K, V), clear()	Removes elements
+    // size(), isEmpty()	Checks size/status
+    // keySet(), values(), entrySet()	Retrieves keys, values, entries
+    
 
     }
 }
