@@ -335,7 +335,7 @@ class Solution {
 ```
 ---
 
-# 36. Valid Sudoku
+# 7. Leetcode 36: Valid Sudoku
 Medium
 
 
@@ -456,5 +456,123 @@ public boolean isValidSudoku(char[][] board) {
         }
     }
     return true;
+}
+```
+---
+# 8 Leetcode 659: Encode and Decode Strings
+
+Description
+Design an algorithm to encode a list of strings to a string. The encoded string is then sent over the network and is decoded back to the original list of strings.
+
+Please implement encode and decode
+
+
+Example1
+```
+Input: ["lint","code","love","you"]
+Output: ["lint","code","love","you"]
+Explanation:
+One possible encode method is: "lint:;code:;love:;you"
+```
+Example2
+```
+Input: ["we", "say", ":", "yes"]
+Output: ["we", "say", ":", "yes"]
+Explanation:
+One possible encode method is: "we:;say:;:::;yes"
+```
+
+```java
+public class Solution {
+
+    // Encodes a list of strings to a single string.
+    public String encode(List<String> strs) {
+        
+        if(strs.size()==0 ){
+            return Character.toString((char)258);
+        }
+        String separate = Character.toString((char)257);
+        StringBuilder sb = new StringBuilder();
+        for(String s:strs){
+            sb.append(s);
+            sb.append(separate);
+        }
+        sb.deleteCharAt(sb.length()-1);
+        return sb.toString();
+        
+    }
+
+    // Decodes a single string to a list of strings.
+    public List<String> decode(String s) {
+        
+        if(s.equals(Character.toString((char)258))){
+            return new ArrayList();
+        }
+        
+       String separate = Character.toString((char)257);
+        
+         return Arrays.asList(s.split(separate, -1));
+    }
+}
+```
+---
+# 128. Longest Consecutive Sequence
+Medium
+
+Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence.
+
+You must write an algorithm that runs in O(n) time.
+
+ 
+
+Example 1:
+```
+Input: nums = [100,4,200,1,3,2]
+Output: 4
+Explanation: The longest consecutive elements sequence is [1, 2, 3, 4]. Therefore its length is 4.
+```
+Example 2:
+```
+Input: nums = [0,3,7,2,5,8,4,6,0,1]
+Output: 9
+ ```
+
+Constraints:
+
+- 0 <= nums.length <= 10<sup>5</sup>
+- -10<sup>9</sup> <= nums[i] <= 10<sup>9</sup>
+
+```java
+class Solution {
+    public int longestConsecutive(int[] nums) {
+        
+        if(nums.length ==0){
+            return 0;
+        }
+        
+        HashSet<Integer> numSet = new HashSet<>();
+        for(int i=0; i<nums.length; i++){
+            numSet.add(nums[i]);
+        }
+        
+        int longestSub = 1;
+        
+        for(int num:numSet) {
+            if(numSet.contains(num-1)){
+                continue;
+            } else {
+                int currentNum = num;
+                int currentSub = 1;
+                while(numSet.contains(currentNum+1)){
+                    currentNum++;
+                    currentSub++;
+                }
+                
+                longestSub = Math.max(longestSub, currentSub);
+            } 
+        }
+        return longestSub;
+        
+    }
 }
 ```
