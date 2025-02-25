@@ -14,6 +14,13 @@
 | `includes(value)` | Checks if an element exists in an array | `arr.includes(3);` |
 | `reverse()` | Reverses an array in place | `arr.reverse();` |
 | `sort((a, b) => a - b)` | Sorts an array (default is lexicographic) | `arr.sort((a, b) => a - b);` |
+| `filter(callback)` | Creates a new array with elements that pass the test | `arr.filter(num => num > 5);` |
+| `map(callback)` | Creates a new array by applying a function to each element | `arr.map(num => num * 2);` |
+| `reduce(callback, initialValue)` | Reduces an array to a single value | `arr.reduce((sum, num) => sum + num, 0);` |
+| `find(callback)` | Returns the first element that passes a test | `arr.find(x => x > 5);` |
+| `findIndex(callback)` | Returns the index of the first element that passes a test | `arr.findIndex(x => x > 5);` |
+| `every(callback)` | Checks if all elements pass a test | `arr.every(x => x > 0);` |
+| `some(callback)` | Checks if at least one element passes a test | `arr.some(x => x > 5);` |
 
 ## 🔹 String Methods
 | Method | Description | Example |
@@ -24,6 +31,8 @@
 | `slice(start, end)` | Extracts part of a string | `'Hello'.slice(1, 3); // 'el'` |
 | `toLowerCase()` | Converts a string to lowercase | `'HELLO'.toLowerCase();` |
 | `toUpperCase()` | Converts a string to uppercase | `'hello'.toUpperCase();` |
+| `trim()` | Removes whitespace from both ends of a string | `'  hello  '.trim();` |
+| `split(separator)` | Splits a string into an array | `'hello world'.split(' ');` |
 
 ## 🔹 Number & Math Methods
 | Method | Description | Example |
@@ -33,6 +42,8 @@
 | `Math.floor(x)` | Rounds down to the nearest integer | `Math.floor(4.9); // 4` |
 | `Math.round(x)` | Rounds to the nearest integer | `Math.round(4.5); // 5` |
 | `Math.random()` | Generates a random number between 0 and 1 | `Math.random();` |
+| `Math.max(a, b, ...)` | Returns the largest number | `Math.max(5, 10, 15);` |
+| `Math.min(a, b, ...)` | Returns the smallest number | `Math.min(5, 10, 15);` |
 
 ## 🔹 Object Methods
 | Method | Description | Example |
@@ -41,6 +52,8 @@
 | `Object.values(obj)` | Returns an array of object values | `Object.values({a: 1, b: 2});` |
 | `Object.entries(obj)` | Returns an array of `[key, value]` pairs | `Object.entries({a: 1, b: 2});` |
 | `Object.assign(target, source)` | Copies properties from one object to another | `Object.assign({}, obj1, obj2);` |
+| `Object.freeze(obj)` | Prevents modifications to an object | `Object.freeze(myObj);` |
+| `Object.seal(obj)` | Prevents adding/removing properties but allows modification | `Object.seal(myObj);` |
 
 ## 🔹 Performance & Misc Methods
 | Method | Description | Example |
@@ -50,6 +63,10 @@
 | `console.timeEnd(label)` | Ends the timer and logs the time elapsed | `console.timeEnd('test');` |
 | `setTimeout(fn, ms)` | Delays execution of a function | `setTimeout(() => console.log('Hello'), 1000);` |
 | `setInterval(fn, ms)` | Repeats execution of a function | `setInterval(() => console.log('Hi'), 1000);` |
+| `clearTimeout(id)` | Cancels a timeout | `clearTimeout(timeoutId);` |
+| `clearInterval(id)` | Cancels an interval | `clearInterval(intervalId);` |
+| `Date.now()` | Returns the current timestamp | `Date.now();` |
+| `new Date().toISOString()` | Returns the current date in ISO format | `new Date().toISOString();` |
 
 These methods are crucial for **competitive programming** because they help with **fast operations, memory optimization, and concise code writing**. 🚀💡 Let me know if you need a **detailed example** for any of these methods! 😃
 
