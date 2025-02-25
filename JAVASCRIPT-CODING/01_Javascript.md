@@ -68,5 +68,40 @@
 | `Date.now()` | Returns the current timestamp | `Date.now();` |
 | `new Date().toISOString()` | Returns the current date in ISO format | `new Date().toISOString();` |
 
-These methods are crucial for **competitive programming** because they help with **fast operations, memory optimization, and concise code writing**. 🚀💡 Let me know if you need a **detailed example** for any of these methods! 😃
+---
+# JavaScript Object Methods
+
+## 🔹 Object Methods and Examples
+
+| Method | Description | Example |
+|--------|------------|---------|
+| `Object.keys(obj)` | Returns an array of object keys | `Object.keys({a: 1, b: 2}); // ['a', 'b']` |
+| `Object.values(obj)` | Returns an array of object values | `Object.values({a: 1, b: 2}); // [1, 2]` |
+| `Object.entries(obj)` | Returns an array of `[key, value]` pairs | `Object.entries({a: 1, b: 2}); // [['a', 1], ['b', 2]]` |
+| `Object.assign(target, source)` | Copies properties from one object to another | `Object.assign({}, {a: 1}, {b: 2}); // {a: 1, b: 2}` |
+| `Object.create(proto, propertiesObject)` | Creates a new object with the specified prototype | `const obj = Object.create({x: 10}); console.log(obj.x); // 10` |
+| `Object.freeze(obj)` | Prevents modifications to an object | `const obj = {a: 1}; Object.freeze(obj); obj.a = 2; // No effect` |
+| `Object.seal(obj)` | Prevents adding/removing properties but allows modification | `const obj = {a: 1}; Object.seal(obj); obj.a = 2; // Works, but can't add new keys` |
+| `Object.getPrototypeOf(obj)` | Returns the prototype of an object | `Object.getPrototypeOf([]); // Array.prototype` |
+| `Object.setPrototypeOf(obj, proto)` | Sets the prototype of an object | `const obj = {}; Object.setPrototypeOf(obj, Array.prototype);` |
+| `Object.hasOwn(obj, prop)` | Checks if an object has a property (ES2022) | `Object.hasOwn({a: 1}, 'a'); // true` |
+| `Object.hasOwnProperty(prop)` | Checks if an object has a property | `({a: 1}).hasOwnProperty('a'); // true` |
+| `Object.is(value1, value2)` | Compares values like `===`, but treats `NaN` correctly | `Object.is(NaN, NaN); // true` |
+| `Object.defineProperty(obj, prop, descriptor)` | Adds or modifies a property with descriptors | `Object.defineProperty(obj, 'key', {value: 10, writable: false});` |
+| `Object.defineProperties(obj, props)` | Defines multiple properties at once | `Object.defineProperties(obj, {key1: {value: 10}, key2: {value: 20}});` |
+| `Object.getOwnPropertyDescriptor(obj, prop)` | Gets a property descriptor | `Object.getOwnPropertyDescriptor({a: 1}, 'a');` |
+| `Object.getOwnPropertyDescriptors(obj)` | Gets all property descriptors | `Object.getOwnPropertyDescriptors({a: 1});` |
+| `Object.getOwnPropertyNames(obj)` | Returns an array of all property names (including non-enumerable) | `Object.getOwnPropertyNames({a: 1, b: 2}); // ['a', 'b']` |
+| `Object.getOwnPropertySymbols(obj)` | Returns an array of symbol properties | `const sym = Symbol('x'); const obj = {[sym]: 10}; Object.getOwnPropertySymbols(obj);` |
+| `Object.fromEntries(entries)` | Creates an object from key-value pairs | `Object.fromEntries([['a', 1], ['b', 2]]); // {a: 1, b: 2}` |
+
+## 🔹 String Methods
+
+| Method | Description | Example |
+|--------|------------|---------|
+| `replace(searchValue, newValue)` | Replaces the first occurrence of a substring | `'hello world'.replace('world', 'JavaScript'); // 'hello JavaScript'` |
+| `replaceAll(searchValue, newValue)` | Replaces all occurrences of a substring | `'hello world world'.replaceAll('world', 'JavaScript'); // 'hello JavaScript JavaScript'` |
+| `substring(start, end)` | Extracts a part of a string | `'hello world'.substring(0, 5); // 'hello'` |
+
+
 
