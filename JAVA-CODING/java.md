@@ -510,3 +510,167 @@ for (String item : queue) {
 
 ---
 
+# Integer Class Methods in Java
+
+This document provides a comprehensive list of **Integer** class methods in Java along with examples.
+
+## **1. Creating an Integer Object**
+```java
+Integer num = Integer.valueOf(10);
+```
+---
+
+## **2. Basic Integer Operations**
+| Method | Description |
+|--------|-------------|
+| `intValue()` | Returns the value of the Integer as an `int`. |
+| `doubleValue()` | Returns the value of the Integer as a `double`. |
+| `floatValue()` | Returns the value of the Integer as a `float`. |
+| `longValue()` | Returns the value of the Integer as a `long`. |
+
+```java
+int val = num.intValue();
+double dVal = num.doubleValue();
+```
+
+---
+
+## **3. Comparing Integers**
+| Method | Description |
+|--------|-------------|
+| `compareTo(Integer anotherInteger)` | Compares two Integer objects. |
+| `compare(int x, int y)` | Compares two int values. |
+| `equals(Object obj)` | Checks if two Integer objects are equal. |
+
+```java
+int result = num.compareTo(15);
+boolean isEqual = num.equals(10);
+```
+
+---
+
+## **4. Parsing and Converting**
+| Method | Description |
+|--------|-------------|
+| `parseInt(String s)` | Parses a string into an `int`. |
+| `valueOf(String s)` | Returns an Integer object from a string. |
+| `toString(int i)` | Converts an int to a string. |
+
+```java
+int parsed = Integer.parseInt("123");
+Integer obj = Integer.valueOf("456");
+String str = Integer.toString(789);
+```
+
+---
+
+## **5. Bitwise Operations**
+| Method | Description |
+|--------|-------------|
+| `bitCount(int i)` | Returns the number of 1-bits in the binary representation. |
+| `highestOneBit(int i)` | Returns the highest one-bit in two's complement form. |
+| `lowestOneBit(int i)` | Returns the lowest one-bit in two's complement form. |
+| `rotateLeft(int i, int distance)` | Rotates bits left by the specified distance. |
+| `rotateRight(int i, int distance)` | Rotates bits right by the specified distance. |
+| `reverse(int i)` | Returns the value with bits reversed. |
+| `signum(int i)` | Returns the sign of the integer (-1, 0, or 1). |
+
+```java
+int bitCount = Integer.bitCount(5);
+int highest = Integer.highestOneBit(10);
+```
+
+---
+
+## **6. Converting to Other Number Systems**
+| Method | Description |
+|--------|-------------|
+| `toBinaryString(int i)` | Converts an int to a binary string. |
+| `toOctalString(int i)` | Converts an int to an octal string. |
+| `toHexString(int i)` | Converts an int to a hexadecimal string. |
+
+```java
+String binary = Integer.toBinaryString(10);
+String octal = Integer.toOctalString(10);
+String hex = Integer.toHexString(10);
+```
+
+---
+# Character Class Methods in Java
+
+This document provides a comprehensive list of **Character** class methods in Java along with examples.
+
+## **1. Creating a Character Object**
+```java
+Character ch = Character.valueOf('A');
+```
+---
+
+## **2. Checking Character Type**
+| Method | Description |
+|--------|-------------|
+| `isLetter(char ch)` | Checks if the character is a letter. |
+| `isDigit(char ch)` | Checks if the character is a digit. |
+| `isLetterOrDigit(char ch)` | Checks if the character is a letter or digit. |
+| `isWhitespace(char ch)` | Checks if the character is whitespace. |
+| `isUpperCase(char ch)` | Checks if the character is uppercase. |
+| `isLowerCase(char ch)` | Checks if the character is lowercase. |
+
+```java
+boolean isLetter = Character.isLetter('A');
+boolean isDigit = Character.isDigit('5');
+```
+
+---
+
+## **3. Converting Characters**
+| Method | Description |
+|--------|-------------|
+| `toUpperCase(char ch)` | Converts character to uppercase. |
+| `toLowerCase(char ch)` | Converts character to lowercase. |
+| `toString(char ch)` | Converts character to a string. |
+
+```java
+char upper = Character.toUpperCase('a');
+char lower = Character.toLowerCase('B');
+String str = Character.toString('C');
+```
+
+---
+
+## **4. Checking Unicode Properties**
+| Method | Description |
+|--------|-------------|
+| `isDefined(char ch)` | Checks if the character is defined in Unicode. |
+| `isSurrogate(char ch)` | Checks if the character is a Unicode surrogate. |
+| `isTitleCase(char ch)` | Checks if the character is title case. |
+| `getType(char ch)` | Returns the general category type of the character. |
+
+```java
+boolean isDefined = Character.isDefined('A');
+int type = Character.getType('A');
+```
+
+---
+
+## **5. Numeric Conversion**
+| Method | Description |
+|--------|-------------|
+| `getNumericValue(char ch)` | Returns the numeric value of the character. |
+| `digit(char ch, int radix)` | Returns the numeric value of the character in the given radix. |
+
+```java
+int numValue = Character.getNumericValue('9');
+int digit = Character.digit('A', 16);
+```
+
+---
+
+
+
+
+---
+
+## **Final Thoughts**
+These methods cover the most common operations on the **Integer** class in Java, useful for coding and competitive programming!
+
