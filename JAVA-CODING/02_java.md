@@ -217,7 +217,130 @@ map.replace(3, "Cherry", "Grapes");
 ```
 
 ---
+# Comparable, Comparator, and Lambda in Java
 
+## **1. Comparable Interface**  
+The `Comparable<T>` interface allows a class to define its natural ordering.
 
+### **Example: Sorting a List of Students by Marks**
+```java
+import java.util.*;
+
+class Student implements Comparable<Student> {
+    String name;
+    int marks;
+
+    public Student(String name, int marks) {
+        this.name = name;
+        this.marks = marks;
+    }
+
+    @Override
+    public int compareTo(Student other) {
+        return Integer.compare(this.marks, other.marks); // Ascending order
+    }
+
+    @Override
+    public String toString() {
+        return name + " - " + marks;
+    }
+}
+
+public class ComparableExample {
+    public static void main(String[] args) {
+        List<Student> students = new ArrayList<>();
+        students.add(new Student("Alice", 85));
+        students.add(new Student("Bob", 75));
+        students.add(new Student("Charlie", 90));
+
+        Collections.sort(students); // Uses Comparable
+
+        System.out.println(students);
+    }
+}
+```
+
+---
+
+## **2. Comparator Interface**  
+The `Comparator<T>` interface allows custom sorting logic without modifying the class.
+
+### **Example: Sorting by Name Using Comparator**
+```java
+import java.util.*;
+
+class NameComparator implements Comparator<Student> {
+    @Override
+    public int compare(Student s1, Student s2) {
+        return s1.name.compareTo(s2.name); // Alphabetical order
+    }
+}
+
+public class ComparatorExample {
+    public static void main(String[] args) {
+        List<Student> students = new ArrayList<>();
+        students.add(new Student("Alice", 85));
+        students.add(new Student("Bob", 75));
+        students.add(new Student("Charlie", 90));
+
+        Collections.sort(students, new NameComparator()); // Sorting by name
+
+        System.out.println(students);
+    }
+}
+```
+
+---
+
+## **3. Using Lambda Expressions with Comparator**  
+Instead of writing a separate `Comparator` class, we can use a **lambda function**.
+
+### **Example: Sorting by Marks Using Lambda**
+```java
+import java.util.*;
+
+public class LambdaComparator {
+    public static void main(String[] args) {
+        List<Student> students = new ArrayList<>();
+        students.add(new Student("Alice", 85));
+        students.add(new Student("Bob", 75));
+        students.add(new Student("Charlie", 90));
+
+        // Sorting in descending order using a lambda function
+        students.sort((s1, s2) -> Integer.compare(s2.marks, s1.marks));
+
+        System.out.println(students);
+    }
+}
+```
+
+---
+
+## **4. Method References in Comparator**  
+We can also use method references for readability.
+
+```java
+students.sort(Comparator.comparingInt(s -> s.marks)); // Ascending order
+students.sort(Comparator.comparingInt(Student::getMarks).reversed()); // Descending order
+```
+
+---
+
+## **Key Differences:**
+| Feature | `Comparable` | `Comparator` |
+|---------|-------------|-------------|
+| Interface | Implements `Comparable<T>` | Implements `Comparator<T>` |
+| Method | `compareTo(T o)` | `compare(T o1, T o2)` |
+| Sorting Logic | Defined in the class | External class or lambda |
+| Multiple Sorting | No | Yes, can have multiple |
+
+---
+
+## **Best Practices**
+- Use `Comparable` when objects have a natural ordering (e.g., sorting students by marks).
+- Use `Comparator` when you need multiple sorting criteria.
+- Use **Lambda functions** or **method references** for shorter, cleaner comparator logic.
+
+---
 
 
