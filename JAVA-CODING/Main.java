@@ -150,5 +150,22 @@ public class Main {
     // keySet(), values(), entrySet()	Retrieves keys, values, entries
     
 
+    // . Math Functions (java.lang.Math)
+    // Java provides built-in functions for common mathematical operations.
+
+    // Function	Description
+    // Math.abs(x)	Absolute value
+    // Math.max(a, b)	Maximum of two numbers
+    // Math.min(a, b)	Minimum of two numbers
+    // Math.sqrt(x)	Square root
+    // Math.pow(x, y)	Power function (x^y)
+    // Math.floor(x)	Rounds down
+    // Math.ceil(x)	Rounds up
+    // Math.round(x)	Rounds to nearest integer
+    // Math.log(x)	Natural logarithm
+    // Math.log10(x)	Base-10 logarithm
+    // Math.sin(x), Math.cos(x), Math.tan(x)	Trigonometric functions
+    // Math.gcd(a, b)	Greatest Common Divisor (Java 9+)
+
     }
 }
