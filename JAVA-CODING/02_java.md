@@ -342,5 +342,136 @@ students.sort(Comparator.comparingInt(Student::getMarks).reversed()); // Descend
 - Use **Lambda functions** or **method references** for shorter, cleaner comparator logic.
 
 ---
+# TreeSet and LinkedHashSet in Java
+
+## 1. TreeSet in Java
+
+### Introduction
+`TreeSet` is a part of the Java Collections Framework and implements the `NavigableSet` interface, which extends `SortedSet`. It is implemented using a **Red-Black Tree** and stores elements in **sorted order**.
+
+### Characteristics
+- **Sorted Order**: Maintains elements in ascending order.
+- **No Duplicates**: Only unique elements are allowed.
+- **Not Thread-Safe**: Must be synchronized externally.
+- **Null Elements**: Does not allow null elements.
+
+### TreeSet Methods
+
+| Method | Description |
+|--------|-------------|
+| `add(E e)` | Adds the specified element to the set. |
+| `remove(Object o)` | Removes the specified element if present. |
+| `contains(Object o)` | Checks if the set contains a specific element. |
+| `size()` | Returns the number of elements in the set. |
+| `isEmpty()` | Checks if the set is empty. |
+| `clear()` | Removes all elements from the set. |
+| `first()` | Returns the first (lowest) element. |
+| `last()` | Returns the last (highest) element. |
+| `higher(E e)` | Returns the least element strictly greater than the given element. |
+| `lower(E e)` | Returns the greatest element strictly less than the given element. |
+| `ceiling(E e)` | Returns the least element greater than or equal to the given element. |
+| `floor(E e)` | Returns the greatest element less than or equal to the given element. |
+| `pollFirst()` | Retrieves and removes the first element. |
+| `pollLast()` | Retrieves and removes the last element. |
+| `descendingSet()` | Returns a reverse order view of the elements. |
+
+### Example: Using TreeSet
+```java
+import java.util.*;
+
+public class TreeSetExample {
+    public static void main(String[] args) {
+        TreeSet<Integer> treeSet = new TreeSet<>();
+
+        treeSet.add(5);
+        treeSet.add(1);
+        treeSet.add(10);
+        treeSet.add(3);
+
+        System.out.println("TreeSet: " + treeSet);
+        System.out.println("First Element: " + treeSet.first());
+        System.out.println("Last Element: " + treeSet.last());
+        System.out.println("Higher than 3: " + treeSet.higher(3));
+        System.out.println("Lower than 10: " + treeSet.lower(10));
+    }
+}
+```
+**Output:**
+```
+TreeSet: [1, 3, 5, 10]
+First Element: 1
+Last Element: 10
+Higher than 3: 5
+Lower than 10: 5
+```
+
+---
+
+## 2. LinkedHashSet in Java
+
+### Introduction
+`LinkedHashSet` is a subclass of `HashSet` and implements the `Set` interface. It maintains insertion order using a **doubly-linked list** running through its elements.
+
+### Characteristics
+- **Maintains Insertion Order**: Unlike `HashSet`, elements are returned in the order they were inserted.
+- **No Duplicates**: Duplicate elements are not allowed.
+- **Allows Null**: Can store one `null` element.
+
+### LinkedHashSet Methods
+
+| Method | Description |
+|--------|-------------|
+| `add(E e)` | Adds the specified element to the set. |
+| `remove(Object o)` | Removes the specified element. |
+| `contains(Object o)` | Checks if the set contains a specific element. |
+| `size()` | Returns the number of elements in the set. |
+| `isEmpty()` | Checks if the set is empty. |
+| `clear()` | Removes all elements. |
+| `iterator()` | Returns an iterator over the elements in insertion order. |
+
+### Example: Using LinkedHashSet
+```java
+import java.util.*;
+
+public class LinkedHashSetExample {
+    public static void main(String[] args) {
+        LinkedHashSet<String> linkedHashSet = new LinkedHashSet<>();
+
+        linkedHashSet.add("Apple");
+        linkedHashSet.add("Banana");
+        linkedHashSet.add("Cherry");
+        linkedHashSet.add("Apple"); // Duplicate, won't be added
+
+        System.out.println("LinkedHashSet: " + linkedHashSet);
+
+        linkedHashSet.remove("Banana");
+        System.out.println("After removal: " + linkedHashSet);
+    }
+}
+```
+**Output:**
+```
+LinkedHashSet: [Apple, Banana, Cherry]
+After removal: [Apple, Cherry]
+```
+
+---
+
+## Key Differences: TreeSet vs LinkedHashSet
+| Feature | TreeSet | LinkedHashSet |
+|---------|--------|--------------|
+| **Ordering** | Natural (sorted) order | Insertion order |
+| **Implementation** | Red-Black Tree | Hash Table + Linked List |
+| **Performance** | O(log n) for operations | O(1) for add, remove, contains |
+| **Null Handling** | Does not allow null | Allows one null value |
+| **Use Case** | When sorted order is needed | When insertion order is important |
+
+---
+## Conclusion
+- Use **TreeSet** when you need a **sorted** collection.
+- Use **LinkedHashSet** when you need to **preserve insertion order** with quick lookups.
+
+Both collections provide unique advantages and should be chosen based on the requirements of the application.
+
 
 
