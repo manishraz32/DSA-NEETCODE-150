@@ -473,5 +473,145 @@ After removal: [Apple, Cherry]
 
 Both collections provide unique advantages and should be chosen based on the requirements of the application.
 
+---
+# TreeMap and LinkedHashMap in Java
+
+## 1. TreeMap in Java
+
+### Introduction
+`TreeMap` is a part of the Java Collections Framework and implements the `NavigableMap` interface, which extends `SortedMap`. It is implemented using a **Red-Black Tree** and maintains elements in **sorted order based on keys**.
+
+### Characteristics
+- **Sorted Order**: Keys are stored in natural order (or a custom comparator can be used).
+- **No Duplicates**: Unique keys are required.
+- **Not Thread-Safe**: Must be synchronized externally.
+- **Allows Null Values**: But does not allow `null` keys.
+
+### TreeMap Methods
+
+| Method | Description |
+|--------|-------------|
+| `put(K key, V value)` | Inserts a key-value pair into the map. |
+| `remove(Object key)` | Removes the mapping for the specified key. |
+| `get(Object key)` | Returns the value for the given key. |
+| `containsKey(Object key)` | Checks if the map contains a specific key. |
+| `containsValue(Object value)` | Checks if the map contains a specific value. |
+| `size()` | Returns the number of key-value mappings. |
+| `isEmpty()` | Checks if the map is empty. |
+| `clear()` | Removes all elements from the map. |
+| `firstKey()` | Returns the first (lowest) key. |
+| `lastKey()` | Returns the last (highest) key. |
+| `higherKey(K key)` | Returns the least key strictly greater than the given key. |
+| `lowerKey(K key)` | Returns the greatest key strictly less than the given key. |
+| `ceilingKey(K key)` | Returns the least key greater than or equal to the given key. |
+| `floorKey(K key)` | Returns the greatest key less than or equal to the given key. |
+| `pollFirstEntry()` | Retrieves and removes the first entry. |
+| `pollLastEntry()` | Retrieves and removes the last entry. |
+| `descendingMap()` | Returns a reverse order view of the keys. |
+
+### Example: Using TreeMap
+```java
+import java.util.*;
+
+public class TreeMapExample {
+    public static void main(String[] args) {
+        TreeMap<Integer, String> treeMap = new TreeMap<>();
+
+        treeMap.put(3, "Apple");
+        treeMap.put(1, "Banana");
+        treeMap.put(5, "Cherry");
+        treeMap.put(2, "Date");
+
+        System.out.println("TreeMap: " + treeMap);
+        System.out.println("First Key: " + treeMap.firstKey());
+        System.out.println("Last Key: " + treeMap.lastKey());
+        System.out.println("Higher Key than 2: " + treeMap.higherKey(2));
+        System.out.println("Lower Key than 5: " + treeMap.lowerKey(5));
+    }
+}
+```
+**Output:**
+```
+TreeMap: {1=Banana, 2=Date, 3=Apple, 5=Cherry}
+First Key: 1
+Last Key: 5
+Higher Key than 2: 3
+Lower Key than 5: 3
+```
+
+---
+
+## 2. LinkedHashMap in Java
+
+### Introduction
+`LinkedHashMap` is a subclass of `HashMap` and maintains insertion order using a **doubly-linked list**.
+
+### Characteristics
+- **Maintains Insertion Order**: Unlike `HashMap`, elements are returned in the order they were inserted.
+- **No Duplicates**: Unique keys are required.
+- **Allows Null**: Can store one `null` key and multiple `null` values.
+- **Faster Access**: Similar to `HashMap`, operations run in **O(1) time complexity**.
+
+### LinkedHashMap Methods
+
+| Method | Description |
+|--------|-------------|
+| `put(K key, V value)` | Inserts a key-value pair into the map. |
+| `remove(Object key)` | Removes the mapping for the specified key. |
+| `get(Object key)` | Returns the value for the given key. |
+| `containsKey(Object key)` | Checks if the map contains a specific key. |
+| `containsValue(Object value)` | Checks if the map contains a specific value. |
+| `size()` | Returns the number of key-value mappings. |
+| `isEmpty()` | Checks if the map is empty. |
+| `clear()` | Removes all elements. |
+| `keySet()` | Returns a `Set` of keys. |
+| `values()` | Returns a `Collection` of values. |
+| `entrySet()` | Returns a `Set` of key-value pairs. |
+
+### Example: Using LinkedHashMap
+```java
+import java.util.*;
+
+public class LinkedHashMapExample {
+    public static void main(String[] args) {
+        LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+
+        linkedHashMap.put(3, "Apple");
+        linkedHashMap.put(1, "Banana");
+        linkedHashMap.put(5, "Cherry");
+        linkedHashMap.put(2, "Date");
+
+        System.out.println("LinkedHashMap: " + linkedHashMap);
+        linkedHashMap.remove(1);
+        System.out.println("After removal: " + linkedHashMap);
+    }
+}
+```
+**Output:**
+```
+LinkedHashMap: {3=Apple, 1=Banana, 5=Cherry, 2=Date}
+After removal: {3=Apple, 5=Cherry, 2=Date}
+```
+
+---
+
+## Key Differences: TreeMap vs LinkedHashMap
+
+| Feature | TreeMap | LinkedHashMap |
+|---------|--------|--------------|
+| **Ordering** | Sorted by keys | Insertion order |
+| **Implementation** | Red-Black Tree | Hash Table + Linked List |
+| **Performance** | O(log n) for operations | O(1) for add, remove, contains |
+| **Null Handling** | Does not allow null keys | Allows one null key |
+| **Use Case** | When sorted keys are needed | When insertion order is important |
+
+---
+
+## Conclusion
+- Use **TreeMap** when you need **sorted keys**.
+- Use **LinkedHashMap** when you need **preserved insertion order** with quick lookups.
+
+Both collections provide unique advantages and should be chosen based on the application requirements.
+
 
 
