@@ -233,7 +233,25 @@ public String longestPalindrome(String s) {
 | DP | Palindromes | O(n²) |
 | Manacher’s | Longest palindrome | O(n) |
 
-🚀 **Choose the best approach based on the problem constraints!**
+---
+# use this method when you have to delete key during traverse
+```java
+ Iterator<Integer> iterator = map.keySet().iterator();
+ while (iterator.hasNext()) {
+    int key = iterator.next();
+    minHeap.add(key);
+    int freq = map.get(key);
+
+    System.out.println("key: " + key);
+
+    if (k >= freq) {
+        k = k - freq;
+        iterator.remove(); // Safely removes the current key
+    } else {
+        break;
+    }
+}
+```
 
 
 
