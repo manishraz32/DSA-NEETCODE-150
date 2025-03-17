@@ -504,8 +504,106 @@ mySet.forEach((value) => {
 // cherry
 ```
 
+---
+# JavaScript Object Methods
+
+JavaScript objects are collections of key-value pairs. The `Object` class provides various built-in methods to manipulate and interact with objects.
+
+## 1. `Object.create(proto, propertiesObject)` - Create a New Object
+Creates a new object with the specified prototype and optional properties.
+
+```js
+const person = {
+  greet() {
+    console.log("Hello!");
+  }
+};
+const newPerson = Object.create(person);
+newPerson.greet(); // Hello!
+```
+
+## 2. `Object.assign(target, ...sources)` - Copy Properties to an Object
+Copies properties from one or more source objects to a target object.
+
+```js
+const obj1 = { a: 1 };
+const obj2 = { b: 2 };
+const result = Object.assign({}, obj1, obj2);
+console.log(result); // { a: 1, b: 2 }
+```
+
+## 3. `Object.keys(obj)` - Get All Keys
+Returns an array of all keys (property names) in an object.
+
+```js
+const user = { name: "Alice", age: 25 };
+console.log(Object.keys(user)); // [ 'name', 'age' ]
+```
+
+## 4. `Object.values(obj)` - Get All Values
+Returns an array of all values in an object.
+
+```js
+console.log(Object.values(user)); // [ 'Alice', 25 ]
+```
+
+## 5. `Object.entries(obj)` - Get Key-Value Pairs
+Returns an array of `[key, value]` pairs.
+
+```js
+console.log(Object.entries(user));
+// [ ['name', 'Alice'], ['age', 25] ]
+```
+
+## 6. `Object.fromEntries(entries)` - Create Object from Entries
+Converts an array of `[key, value]` pairs into an object.
+
+```js
+const entries = [['name', 'Alice'], ['age', 25]];
+const obj = Object.fromEntries(entries);
+console.log(obj); // { name: 'Alice', age: 25 }
+```
+
+## 7. `Object.freeze(obj)` - Prevent Modifications
+Prevents properties from being added, removed, or modified.
+
+```js
+const user = { name: "Alice" };
+Object.freeze(user);
+user.name = "Bob"; // Won't change
+console.log(user); // { name: 'Alice' }
+```
+
+## 8. `Object.seal(obj)` - Prevent Additions & Deletions
+Allows modifications but prevents adding or removing properties.
+
+```js
+const user = { name: "Alice" };
+Object.seal(user);
+user.name = "Bob"; // Allowed
+user.age = 25; // Not allowed
+console.log(user); // { name: 'Bob' }
+```
+
+## 9. `Object.hasOwnProperty(prop)` - Check if a Property Exists
+Checks if the object has a specific property (not inherited).
+
+```js
+console.log(user.hasOwnProperty("name")); // true
+console.log(user.hasOwnProperty("toString")); // false
+```
+
+## 10. `Object.getOwnPropertyNames(obj)` - Get All Property Names
+Returns an array of all property names, including non-enumerable ones.
+
+```js
+console.log(Object.getOwnPropertyNames(user)); // [ 'name' ]
+```
+
 ## Conclusion
-The `Set` object in JavaScript is useful for managing collections of unique values. With its built-in methods, you can efficiently add, remove, and check elements while maintaining uniqueness.
+JavaScript provides a wide range of methods for handling objects efficiently. These methods help manipulate objects dynamically while ensuring data integrity and security where needed.
+
+
 
 
 
