@@ -249,9 +249,146 @@ let arr = [1, 2, 3, 4];
 arr.reverse();
 console.log(arr); // [4, 3, 2, 1]
 ```
+---
+# JavaScript Map Methods
 
-## Conclusion
-These are some of the most commonly used array methods in JavaScript. Understanding and using these methods effectively can help you write cleaner and more efficient code.
+The `Map` object in JavaScript holds key-value pairs and remembers the original insertion order of the keys. It provides several useful methods for working with key-value pairs efficiently.
+
+## 1. `new Map()` - Create a Map
+Creates a new empty `Map` or initializes it with key-value pairs.
+
+```js
+const myMap = new Map();
+const initializedMap = new Map([
+  ['name', 'John'],
+  ['age', 30]
+]);
+console.log(initializedMap); // Map(2) { 'name' => 'John', 'age' => 30 }
+```
+
+## 2. `set(key, value)` - Add or Update Key-Value Pair
+Adds a new key-value pair to the `Map` or updates an existing key.
+
+```js
+const myMap = new Map();
+myMap.set('color', 'blue');
+myMap.set('size', 'large');
+console.log(myMap); // Map(2) { 'color' => 'blue', 'size' => 'large' }
+```
+
+## 3. `get(key)` - Retrieve a Value
+Returns the value associated with the given key.
+
+```js
+const myMap = new Map([
+  ['name', 'Alice'],
+  ['age', 25]
+]);
+console.log(myMap.get('name')); // Alice
+console.log(myMap.get('age')); // 25
+```
+
+## 4. `has(key)` - Check if a Key Exists
+Returns `true` if the key exists in the `Map`, otherwise `false`.
+
+```js
+const myMap = new Map([
+  ['name', 'Alice']
+]);
+console.log(myMap.has('name')); // true
+console.log(myMap.has('age')); // false
+```
+
+## 5. `delete(key)` - Remove a Key-Value Pair
+Removes a key and its associated value from the `Map`.
+
+```js
+const myMap = new Map([
+  ['name', 'Alice'],
+  ['age', 25]
+]);
+myMap.delete('age');
+console.log(myMap); // Map(1) { 'name' => 'Alice' }
+```
+
+## 6. `clear()` - Remove All Entries
+Removes all key-value pairs from the `Map`.
+
+```js
+const myMap = new Map([
+  ['name', 'Alice'],
+  ['age', 25]
+]);
+myMap.clear();
+console.log(myMap); // Map(0) {}
+```
+
+## 7. `size` - Get the Number of Entries
+Returns the number of key-value pairs in the `Map`.
+
+```js
+const myMap = new Map([
+  ['name', 'Alice'],
+  ['age', 25]
+]);
+console.log(myMap.size); // 2
+```
+
+## 8. `keys()` - Get All Keys
+Returns an iterator containing all keys in the `Map`.
+
+```js
+const myMap = new Map([
+  ['name', 'Alice'],
+  ['age', 25]
+]);
+for (let key of myMap.keys()) {
+  console.log(key);
+}
+// Output:
+// name
+// age
+```
+
+## 9. `values()` - Get All Values
+Returns an iterator containing all values in the `Map`.
+
+```js
+for (let value of myMap.values()) {
+  console.log(value);
+}
+// Output:
+// Alice
+// 25
+```
+
+## 10. `entries()` - Get All Key-Value Pairs
+Returns an iterator containing all key-value pairs as `[key, value]` arrays.
+
+```js
+for (let entry of myMap.entries()) {
+  console.log(entry);
+}
+// Output:
+// [ 'name', 'Alice' ]
+// [ 'age', 25 ]
+```
+
+## 11. `forEach()` - Iterate Over a Map
+Executes a function for each key-value pair in the `Map`.
+
+```js
+const myMap = new Map([
+  ['name', 'Alice'],
+  ['age', 25]
+]);
+myMap.forEach((value, key) => {
+  console.log(`${key}: ${value}`);
+});
+// Output:
+// name: Alice
+// age: 25
+```
 
 
 
