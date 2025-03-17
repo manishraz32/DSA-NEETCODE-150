@@ -389,6 +389,125 @@ myMap.forEach((value, key) => {
 // name: Alice
 // age: 25
 ```
+---
+
+# JavaScript Set Methods
+
+The `Set` object in JavaScript lets you store unique values of any type. It provides various methods for managing and manipulating sets.
+
+## 1. `new Set()` - Create a Set
+Creates a new `Set` and optionally initializes it with values.
+
+```js
+const mySet = new Set();
+const initializedSet = new Set([1, 2, 3, 4, 5]);
+console.log(initializedSet); // Set(5) { 1, 2, 3, 4, 5 }
+```
+
+## 2. `add(value)` - Add a Value
+Adds a new value to the `Set`. If the value already exists, it won’t be added.
+
+```js
+const mySet = new Set();
+mySet.add(10);
+mySet.add(20);
+mySet.add(10); // Won't be added (duplicates are ignored)
+console.log(mySet); // Set(2) { 10, 20 }
+```
+
+## 3. `has(value)` - Check if a Value Exists
+Returns `true` if the value exists in the `Set`, otherwise `false`.
+
+```js
+const mySet = new Set([1, 2, 3]);
+console.log(mySet.has(2)); // true
+console.log(mySet.has(5)); // false
+```
+
+## 4. `delete(value)` - Remove a Value
+Removes a specific value from the `Set`.
+
+```js
+const mySet = new Set([1, 2, 3]);
+mySet.delete(2);
+console.log(mySet); // Set(2) { 1, 3 }
+```
+
+## 5. `clear()` - Remove All Values
+Removes all values from the `Set`.
+
+```js
+const mySet = new Set([1, 2, 3]);
+mySet.clear();
+console.log(mySet); // Set(0) {}
+```
+
+## 6. `size` - Get the Number of Elements
+Returns the number of elements in the `Set`.
+
+```js
+const mySet = new Set([1, 2, 3, 4]);
+console.log(mySet.size); // 4
+```
+
+## 7. `values()` - Get All Values
+Returns an iterator containing all values in the `Set`.
+
+```js
+const mySet = new Set([1, 2, 3]);
+for (let value of mySet.values()) {
+  console.log(value);
+}
+// Output:
+// 1
+// 2
+// 3
+```
+
+## 8. `keys()` - Alias for `values()`
+Since `Set` only stores unique values, `keys()` behaves the same as `values()`.
+
+```js
+for (let key of mySet.keys()) {
+  console.log(key);
+}
+// Output:
+// 1
+// 2
+// 3
+```
+
+## 9. `entries()` - Get Key-Value Pairs
+Returns an iterator where each value is stored as `[value, value]` pairs.
+
+```js
+for (let entry of mySet.entries()) {
+  console.log(entry);
+}
+// Output:
+// [1, 1]
+// [2, 2]
+// [3, 3]
+```
+
+## 10. `forEach()` - Iterate Over a Set
+Executes a function for each value in the `Set`.
+
+```js
+const mySet = new Set(["apple", "banana", "cherry"]);
+mySet.forEach((value) => {
+  console.log(value);
+});
+// Output:
+// apple
+// banana
+// cherry
+```
+
+## Conclusion
+The `Set` object in JavaScript is useful for managing collections of unique values. With its built-in methods, you can efficiently add, remove, and check elements while maintaining uniqueness.
+
+
 
 
 
