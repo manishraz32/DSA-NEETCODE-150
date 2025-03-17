@@ -103,5 +103,157 @@
 | `replaceAll(searchValue, newValue)` | Replaces all occurrences of a substring | `'hello world world'.replaceAll('world', 'JavaScript'); // 'hello JavaScript JavaScript'` |
 | `substring(start, end)` | Extracts a part of a string | `'hello world'.substring(0, 5); // 'hello'` |
 
+---
+# JavaScript Array Methods
+
+JavaScript provides various built-in methods to manipulate and work with arrays efficiently. Below are some commonly used array methods with examples.
+
+## 1. `push()` - Add Elements to the End
+Adds one or more elements to the end of an array.
+
+```js
+let arr = [1, 2, 3];
+arr.push(4, 5);
+console.log(arr); // [1, 2, 3, 4, 5]
+```
+
+## 2. `pop()` - Remove Last Element
+Removes and returns the last element from an array.
+
+```js
+let arr = [1, 2, 3];
+let removed = arr.pop();
+console.log(arr); // [1, 2]
+console.log(removed); // 3
+```
+
+## 3. `shift()` - Remove First Element
+Removes and returns the first element of an array.
+
+```js
+let arr = [1, 2, 3];
+let removed = arr.shift();
+console.log(arr); // [2, 3]
+console.log(removed); // 1
+```
+
+## 4. `unshift()` - Add Elements to the Beginning
+Adds one or more elements to the beginning of an array.
+
+```js
+let arr = [2, 3];
+arr.unshift(0, 1);
+console.log(arr); // [0, 1, 2, 3]
+```
+
+## 5. `concat()` - Merge Arrays
+Creates a new array by merging two or more arrays.
+
+```js
+let arr1 = [1, 2];
+let arr2 = [3, 4];
+let merged = arr1.concat(arr2);
+console.log(merged); // [1, 2, 3, 4]
+```
+
+## 6. `slice()` - Extract a Portion of an Array
+Returns a shallow copy of a portion of an array without modifying the original array.
+
+```js
+let arr = [1, 2, 3, 4, 5];
+let sliced = arr.slice(1, 4);
+console.log(sliced); // [2, 3, 4]
+console.log(arr); // [1, 2, 3, 4, 5]
+```
+
+## 7. `splice()` - Add/Remove Elements
+Modifies the original array by adding/removing elements.
+
+```js
+let arr = [1, 2, 3, 5];
+arr.splice(3, 0, 4); // Insert 4 at index 3
+console.log(arr); // [1, 2, 3, 4, 5]
+
+arr.splice(1, 2); // Remove 2 elements from index 1
+console.log(arr); // [1, 4, 5]
+```
+
+## 8. `indexOf()` - Find Index of an Element
+Returns the first index of a specified element, or `-1` if not found.
+
+```js
+let arr = [10, 20, 30, 40];
+console.log(arr.indexOf(30)); // 2
+console.log(arr.indexOf(50)); // -1
+```
+
+## 9. `includes()` - Check if an Array Contains an Element
+Returns `true` if the array contains the specified element, otherwise `false`.
+
+```js
+let arr = [1, 2, 3];
+console.log(arr.includes(2)); // true
+console.log(arr.includes(5)); // false
+```
+
+## 10. `forEach()` - Iterate Over an Array
+Executes a function for each array element.
+
+```js
+let arr = [1, 2, 3];
+arr.forEach(num => console.log(num * 2));
+// Output: 2, 4, 6
+```
+
+## 11. `map()` - Transform Each Element
+Creates a new array by applying a function to each element.
+
+```js
+let arr = [1, 2, 3];
+let doubled = arr.map(num => num * 2);
+console.log(doubled); // [2, 4, 6]
+```
+
+## 12. `filter()` - Filter Elements
+Creates a new array with elements that satisfy a condition.
+
+```js
+let arr = [10, 20, 30, 40];
+let filtered = arr.filter(num => num > 20);
+console.log(filtered); // [30, 40]
+```
+
+## 13. `reduce()` - Accumulate Values
+Reduces an array to a single value.
+
+```js
+let arr = [1, 2, 3, 4];
+let sum = arr.reduce((acc, num) => acc + num, 0);
+console.log(sum); // 10
+```
+
+## 14. `sort()` - Sort an Array
+Sorts an array in ascending order (by default it sorts alphabetically).
+
+```js
+let arr = [30, 10, 50, 20];
+arr.sort((a, b) => a - b);
+console.log(arr); // [10, 20, 30, 50]
+```
+
+## 15. `reverse()` - Reverse an Array
+Reverses the order of elements in an array.
+
+```js
+let arr = [1, 2, 3, 4];
+arr.reverse();
+console.log(arr); // [4, 3, 2, 1]
+```
+
+## Conclusion
+These are some of the most commonly used array methods in JavaScript. Understanding and using these methods effectively can help you write cleaner and more efficient code.
+
+
+
 
 
