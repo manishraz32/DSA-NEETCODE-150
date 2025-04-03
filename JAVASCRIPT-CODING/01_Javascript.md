@@ -599,6 +599,159 @@ Returns an array of all property names, including non-enumerable ones.
 ```js
 console.log(Object.getOwnPropertyNames(user)); // [ 'name' ]
 ```
+---
+# Priority Queue in JavaScript
+
+A **priority queue** is a data structure where elements are dequeued based on priority rather than the order they were enqueued. The element with the highest priority (lowest priority value) is dequeued first.
+
+---
+
+## 1. Basic Priority Queue using an Array
+This approach uses an array and sorts it based on priority.
+
+```javascript
+class PriorityQueue {
+  constructor() {
+    this.queue = [];
+  }
+
+  enqueue(element, priority) {
+    this.queue.push({ element, priority });
+    this.queue.sort((a, b) => a.priority - b.priority); // Sort based on priority
+  }
+
+  dequeue() {
+    return this.queue.shift(); // Removes the element with the highest priority
+  }
+
+  peek() {
+    return this.queue.length ? this.queue[0] : null;
+  }
+
+  isEmpty() {
+    return this.queue.length === 0;
+  }
+}
+
+// Example Usage
+const pq = new PriorityQueue();
+pq.enqueue("Task 1", 3);
+pq.enqueue("Task 2", 1);
+pq.enqueue("Task 3", 2);
+
+console.log(pq.dequeue()); // { element: 'Task 2', priority: 1 }
+console.log(pq.dequeue()); // { element: 'Task 3', priority: 2 }
+console.log(pq.dequeue()); // { element: 'Task 1', priority: 3 }
+```
+
+**Time Complexity:** Sorting makes `enqueue` **O(n log n)** in the worst case.
+
+---
+
+## 2. Efficient Priority Queue using Min-Heap
+A **Min-Heap (Binary Heap)** implementation provides better efficiency with **O(log n)** for insert and remove operations.
+
+```javascript
+class MinHeap {
+  constructor() {
+    this.heap = [];
+  }
+
+  getParentIndex(i) { return Math.floor((i - 1) / 2); }
+  getLeftChildIndex(i) { return 2 * i + 1; }
+  getRightChildIndex(i) { return 2 * i + 2; }
+
+  swap(i, j) {
+    [this.heap[i], this.heap[j]] = [this.heap[j], this.heap[i]];
+  }
+
+  push(value) {
+    this.heap.push(value);
+    this.heapifyUp();
+  }
+
+  pop() {
+    if (this.heap.length === 1) return this.heap.pop();
+    const root = this.heap[0];
+    this.heap[0] = this.heap.pop();
+    this.heapifyDown();
+    return root;
+  }
+
+  heapifyUp() {
+    let index = this.heap.length - 1;
+    while (index > 0 && this.heap[index].priority < this.heap[this.getParentIndex(index)].priority) {
+      this.swap(index, this.getParentIndex(index));
+      index = this.getParentIndex(index);
+    }
+  }
+
+  heapifyDown() {
+    let index = 0;
+    while (this.getLeftChildIndex(index) < this.heap.length) {
+      let smallerChildIndex = this.getLeftChildIndex(index);
+      let rightChildIndex = this.getRightChildIndex(index);
+
+      if (rightChildIndex < this.heap.length && this.heap[rightChildIndex].priority < this.heap[smallerChildIndex].priority) {
+        smallerChildIndex = rightChildIndex;
+      }
+
+      if (this.heap[index].priority <= this.heap[smallerChildIndex].priority) break;
+
+      this.swap(index, smallerChildIndex);
+      index = smallerChildIndex;
+    }
+  }
+
+  isEmpty() {
+    return this.heap.length === 0;
+  }
+}
+
+class PriorityQueue {
+  constructor() {
+    this.minHeap = new MinHeap();
+  }
+
+  enqueue(element, priority) {
+    this.minHeap.push({ element, priority });
+  }
+
+  dequeue() {
+    return this.minHeap.pop();
+  }
+
+  peek() {
+    return this.minHeap.heap.length ? this.minHeap.heap[0] : null;
+  }
+
+  isEmpty() {
+    return this.minHeap.isEmpty();
+  }
+}
+
+// Example Usage
+const pq = new PriorityQueue();
+pq.enqueue("Task 1", 3);
+pq.enqueue("Task 2", 1);
+pq.enqueue("Task 3", 2);
+
+console.log(pq.dequeue()); // { element: 'Task 2', priority: 1 }
+console.log(pq.dequeue()); // { element: 'Task 3', priority: 2 }
+console.log(pq.dequeue()); // { element: 'Task 1', priority: 3 }
+```
+
+**Time Complexity:** Insert (`enqueue`) and remove (`dequeue`) take **O(log n)** due to heap adjustments.
+
+---
+
+## Which One Should You Use?
+- **Array-based approach:** Simpler but inefficient (**O(n log n)** worst-case insert/remove).
+- **Heap-based approach:** Optimal for large data (**O(log n)** insert and remove).
+
+Let me know if you need further modifications! 🚀
+
+---
 
 
 
